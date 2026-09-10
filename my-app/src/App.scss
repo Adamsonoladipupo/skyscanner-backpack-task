@@ -1,9 +1,9 @@
-// @import '~bpk-mixins';
-@import '@skyscanner/backpack-web/bpk-mixins';
+@use '@skyscanner/backpack-web/bpk-mixins/breakpoints';
+@use '@skyscanner/backpack-web/bpk-mixins/shadows';
 @use '@skyscanner/backpack-web/bpk-mixins/tokens';
 
 @mixin container {
-  max-width: $bpk-breakpoint-desktop;
+  max-width: tokens.$bpk-breakpoint-desktop;
   margin: 0 auto;
 }
 
@@ -11,16 +11,14 @@
   text-align: center;
 
   &__header {
-    // padding: $bpk-spacing-lg * 2;
     padding: tokens.bpk-spacing-lg() * 2;
-    background-color: $bpk-color-sky-blue;
-    background-image: $bpk-primary-gradient;
-    color: $bpk-color-white;
+    background-color: tokens.$bpk-color-sky-blue;
+    background-image: tokens.$bpk-primary-gradient;
+    color: tokens.$bpk-color-white;
 
-    @include bpk-box-shadow-sm;
+    @include shadows.bpk-box-shadow-sm;
 
-    @include bpk-breakpoint-mobile {
-      // padding: $bpk-spacing-xl;
+    @include breakpoints.bpk-breakpoint-mobile {
       padding: tokens.bpk-spacing-xl();
     }
   }
@@ -30,22 +28,20 @@
   }
 
   &__main {
-    // padding: $bpk-spacing-xxl;
     padding: tokens.bpk-spacing-xxl();
 
     @include container;
 
-    @include bpk-breakpoint-mobile {
-      // padding: $bpk-spacing-base;
+    @include breakpoints.bpk-breakpoint-mobile {
       padding: tokens.bpk-spacing-base();
     }
   }
 
   &__heading {
-    margin-bottom: $bpk-spacing-sm;
+    margin-bottom: tokens.bpk-spacing-sm();
   }
 
   &__text {
-    margin-bottom: $bpk-spacing-sm;
+    margin-bottom: tokens.bpk-spacing-sm();
   }
 }
